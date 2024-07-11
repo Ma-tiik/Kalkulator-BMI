@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Wynik BMI</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+		body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #dbeafe;
+        }
+        .custom-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .wynik {
+            background-color: #1e40af;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #1e40af;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: none;
+            color: #1e40af;
+        }
+	</style>
+</head>
+<body>
+<div class="container custom-container">
+	<div class="wynik">
+		<h2>Twój wynik BMI</h2>
+		<table>
+			<tr>
+				<th>Parametr</th>
+				<th>Wartość</th>
+			</tr>
+			<tr>
+				<td>Waga</td>
+				<td><span th:text="${kalkulatorBMI.waga}">0</span> kg</td>
+			</tr>
+			<tr>
+				<td>Wzrost</td>
+				<td><span th:text="${kalkulatorBMI.wzrost}">0</span> cm</td>
+			</tr>
+			<tr>
+				<td>Wiek</td>
+				<td><span th:text="${kalkulatorBMI.wiek}">0</span> lat</td>
+			</tr>
+			<tr>
+				<td>Płeć</td>
+				<td><span th:text="${kalkulatorBMI.plec}">Nieokreślona</span></td>
+			</tr>
+			<tr>
+				<td>Poziom aktywności</td>
+				<td><span th:text="${kalkulatorBMI.poziomAktywnosci}">0</span></td>
+			</tr>
+			<tr>
+				<td>BMI</td>
+				<td><span th:text="${bmi}">0.0</span></td>
+			</tr>
+		</table>
+		<a href="/" class="btn btn-primary mt-3">Powrót</a>
+	</div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

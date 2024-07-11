@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #dbeafe;
+        }
+        .formularz {
+            background-color: #1e40af;
+            color: white;
+        }
+        .custom-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .footer-text {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container custom-container">
+    <form action="#" th:action="@{/}" th:object="${kalkulatorBMI}" method="post" class="mt-5">
+        <div class="formularz card p-5">
+            <header>
+                <h5 class="card-title text-center">Kalkulator BMI</h5>
+                <p class="card-text text-center">Aplikacja obliczająca wskaźnik BMI.</p>
+            </header>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="waga">Waga (kg):</label>
+                    <input type="text" id="waga" placeholder="Podaj swoją wagę w kg"  th:field="*{waga}" class="form-control" />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('waga')}" th:errors="*{waga}">Błąd wagi</small>
+                </div>
+                <div class="form-group">
+                    <label for="wzrost">Wzrost (cm):</label>
+                    <input type="text" placeholder="Podaj swój wzrost w cm" id="wzrost" th:field="*{wzrost}" class="form-control" />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('wzrost')}" th:errors="*{wzrost}">Błąd wzrostu</small>
+                </div>
+                <div class="form-group">
+                    <label for="wiek">Wiek (lata):</label>
+                    <input type="text" id="wiek" th:field="*{wiek}" placeholder="Podaj swój wiek" class="form-control" />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('wiek')}" th:errors="*{wiek}">Błąd wieku</small>
+                </div>
+                <div class="form-group">
+                    <label for="plec">Płeć:</label>
+                    <select id="plec" th:field="*{plec}" class="form-control">
+                        <option value="Mężczyzna">Mężczyzna</option>
+                        <option value="Kobieta">Kobieta</option>
+                    </select>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('plec')}" th:errors="*{plec}">Błąd płci</small>
+                </div>
+                <div class="form-group">
+                    <label for="poziomAktywnosci">Poziom aktywności:</label>
+                    <select id="poziomAktywnosci" th:field="*{poziomAktywnosci}" class="form-control">
+                        <option value="1">Mały</option>
+                        <option value="2">Średni</option>
+                        <option value="3">Duży</option>
+                        <option value="4">Bardzo duży</option>
+                    </select>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('poziomAktywnosci')}" th:errors="*{poziomAktywnosci}">Błąd poziomu aktywności</small>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Oblicz BMI</button>
+                </div>
+            </div>
+            <div class="footer-text">
+                Mateusz Grabiec gr. 1 inf. niest. sem. 4 | Akademia Śląska
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
