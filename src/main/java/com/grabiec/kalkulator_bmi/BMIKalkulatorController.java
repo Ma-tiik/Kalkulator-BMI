@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.ui.Model;
 
+//zmiana zmiana 
 
 @Controller
 public class BMIKalkulatorController implements WebMvcConfigurer {
